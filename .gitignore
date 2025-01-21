@@ -1,2 +1,6 @@
 # Ignoriere das .vs Verzeichnis
 .vs/
+*.user
+*.userosscache
+*.suo
+*.sln.docstates
