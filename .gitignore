@@ -1,6 +1,20 @@
-# Ignoriere das .vs Verzeichnis
-.vs/
+# Build results
+bin/
+obj/
+
+# User-specific files
 *.user
-*.userosscache
+*.rsuser
 *.suo
-*.sln.docstates
+.vscode/
+
+# Logs
+*.log
+
+# NuGet Packages
+packages/
+*.nupkg
+project.lock.json
+
+# Visual Studio
+.vs/
