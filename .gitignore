@@ -2,9 +2,6 @@
 bin/
 obj/
 
-fibonacciNumbers/obj/
-fibonacciNumbers/bin/
-
 # User-specific files
 *.user
 *.rsuser
