@@ -1,4 +1,6 @@
-﻿/**
+﻿using System.Diagnostics;
+
+/**
 * Microsoft Übung! 
 * Übungsbeschreibung:
 * gegeben:
@@ -26,12 +28,16 @@ foreach(var item in fibonacciNumbers)
 var fibonacciNumbers = new List<int> { 1, 1 };
 int previous, preprevious;
 
+Debug.WriteLine($"Entering for-iteration");
+
 //index 0 und 1 sind schon in verwendung von daher starten wir mit 2
 for (int i = 2; i < 20; ++i)
 {
     previous = fibonacciNumbers[i - 1];
     preprevious = fibonacciNumbers[i - 2];
 
+    Debug.WriteLineIf(preprevious == 1 && previous ==1, $"preprevious and previous is 1");
+    
     fibonacciNumbers.Add(previous + preprevious);
 }
 
