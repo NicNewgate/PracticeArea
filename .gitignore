@@ -9,7 +9,7 @@ fibonacciNumbers/bin/
 *.user
 *.rsuser
 *.suo
-.vscode/
+*.sln
 
 # Logs
 *.log
@@ -19,5 +19,6 @@ packages/
 *.nupkg
 project.lock.json
 
-# Visual Studio
+# Visual Studio + Code
 .vs/
+.vscode/
