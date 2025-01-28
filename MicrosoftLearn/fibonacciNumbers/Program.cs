@@ -24,9 +24,8 @@ foreach(var item in fibonacciNumbers)
 * der Sequenz zu schreiben. (Hinweis: Die 20. Fibonacci-Zahl lautet 6765.)
 **/
 
-//Backend
 var fibonacciNumbers = new List<int> { 1, 1 };
-int previous, preprevious;
+int previous, preprevious, sum;
 
 Debug.WriteLine($"Entering for-iteration");
 
@@ -37,8 +36,12 @@ for (int i = 2; i < 20; ++i)
     preprevious = fibonacciNumbers[i - 2];
 
     Debug.WriteLineIf(preprevious == 1 && previous ==1, $"preprevious and previous is 1");
-    
-    fibonacciNumbers.Add(previous + preprevious);
+
+    sum = previous + preprevious;
+
+    Debug.Assert(sum == 5, "The return value is not 5 and it should be.");
+
+    fibonacciNumbers.Add(sum);
 }
 
 //Ausgabe
