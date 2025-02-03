@@ -15,6 +15,10 @@ func main() {
 	fmt.Println(quote.Go())
 	fmt.Println()
 
+	// Old Practice-Code: Get a greeting message and print it.
+	//message := greetings.Hello("Gladys")
+	//fmt.Println(message)
+
 	// Error Handling
 
 	// Set properties of the predefined Logger, including
@@ -35,7 +39,23 @@ func main() {
 	// to the console.
 	fmt.Println(message)
 
-	// Old Code: Get a greeting message and print it.
-	//message := greetings.Hello("Gladys")
-	//fmt.Println(message)
+	// Print out a bunch of Hello messages
+
+	// A slice of names
+	names := []string{"Gladys", "Samantha", "Darrin"}
+
+	// Request greeting messages for the names
+	messages, err := greetings.Hellos(names)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	// If no error was returned, print the returned map of
+	// messages to the console.
+	fmt.Println()
+	fmt.Println(messages)
+	fmt.Println()
+	for i, helloMessage := range messages {
+		fmt.Printf("Message Key - %v: %v\n", i, helloMessage)
+	}
 }
