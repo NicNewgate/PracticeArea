@@ -9,8 +9,8 @@ Zunächst habe ich das einfachste gemacht
 ## Ordner und Inhalte
 
 MicrosoftLearn:
+Übungen sind auf https://learn.microsoft.com  zu finden
 Hauptsächlich zum testen der Syntax und einfache zusammenhänge verstehen, teilweise Übungsaufgaben
 
-GoLearn
-
+GoLearn:
 Derzeitig das Tutorial welches unter go.dev zu finden ist!
