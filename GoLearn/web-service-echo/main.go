@@ -3,7 +3,7 @@ package main
 import (
 	"net/http"
 
-	"github.com/gin-gonic/gin"
+	"github.com/labstack/echo/v4"
 )
 
 // album represents data about a record album.
@@ -22,46 +22,42 @@ var albums = []album{
 }
 
 func main() {
-	router := gin.Default()
-	router.GET("/albums", getAlbums)
-	router.GET("/albums/:id", getAlbumByID)
-	router.POST("/albums", postAlbums)
+	e := echo.New()
+	e.GET("/albums", getAlbums)
+	e.GET("/albums/:id", getAlbumByID)
+	e.POST("/albums", postAlbums)
 
-	router.Run("localhost:8080")
+	e.Logger.Fatal(e.Start(":1323"))
 }
 
 // getAlbums responds with the list of all albums as JSON.
-func getAlbums(c *gin.Context) {
-	c.IndentedJSON(http.StatusOK, albums)
+func getAlbums(c echo.Context) error {
+	return c.JSON(http.StatusOK, albums)
 }
 
-// getAlbumByID locates the album whose ID value matches the id
-// parameter sent by the client, then returns that album as a response.
-func getAlbumByID(c *gin.Context) {
+// e.GET("/albums/:id", getAlbumByID)
+func getAlbumByID(c echo.Context) error {
 	id := c.Param("id")
 
 	// Loop over the list of albums, looking for
 	// an album whose ID value matches the parameter.
 	for _, a := range albums {
 		if a.ID == id {
-			c.IndentedJSON(http.StatusOK, a)
-			return
+			return c.JSON(http.StatusOK, a)
 		}
 	}
-	c.IndentedJSON(http.StatusNotFound, gin.H{"message": "album not found"})
+	return c.String(http.StatusNotFound, "album not found")
 }
 
 // postAlbums adds an album from JSON received in the request body.
-func postAlbums(c *gin.Context) {
-	var newAlbum album
+func postAlbums(c echo.Context) error {
+	newAlbum := new(album)
 
-	// Call BindJSON to bind the received JSON to
-	// newAlbum.
-	if err := c.BindJSON(&newAlbum); err != nil {
-		return
+	if err := c.Bind(newAlbum); err != nil {
+		return err
 	}
 
 	// Add the new album to the slice
-	albums = append(albums, newAlbum)
-	c.IndentedJSON(http.StatusCreated, newAlbum)
+	albums = append(albums, *newAlbum)
+	return c.JSON(http.StatusCreated, newAlbum)
 }
