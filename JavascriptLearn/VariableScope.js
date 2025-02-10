@@ -27,8 +27,6 @@ console.log(x);
 //}
 //console.log(y)
 
-// let -
-
 
 // funktionen und scopes
 const person = { 
@@ -37,9 +35,7 @@ const person = {
         console.log(this.name); 
     } 
 } 
-
 person.greet();
-
 
 // Eine Klasse
 class meineKlasse{
