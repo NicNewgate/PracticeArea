@@ -14,3 +14,6 @@ Hauptsächlich zum testen der Syntax und einfache zusammenhänge verstehen, teil
 
 GoLearn:
 Derzeitig das Tutorial welches unter go.dev zu finden ist!
+
+JavaScriptLearn:
+Erste Schritte nochmal mit Javascript - Typen, Objekte, Klassen usw.
